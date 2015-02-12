@@ -1,6 +1,6 @@
 var dest, src, test, reports, path, pkg;
 
-pkg = require('./package.json');
+pkg = require('../package.json');
 path = require('path');
 
 dest = './dist';
