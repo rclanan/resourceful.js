@@ -26,3 +26,13 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+#Hide ideaj
+.idea
+
+
+bower_components
+Thumbs.db
+
+dist/*
+reports/*
