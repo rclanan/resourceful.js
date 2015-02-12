@@ -1,13 +1,15 @@
 {
-  "name": "constants.js",
+  "name": "resourceful.js",
+  "mainFilename": "resourceful.js",
   "version": "0.0.1",
-  "description": "constants handling library for JavaScript",
-  "main": "dist/constants.js",
+  "description": "ES6 implementation of constants.js library",
+  "main": "dist/resourceful.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:fusionalliance/constants.js.git"
+    "url": "git@github.com:fusionalliance/resourceful.js.git"
   },
   "keywords": [
+    "resources",
     "constants"
   ],
   "author": "Fusion Alliance (http://www.fusionalliance.com/)",
@@ -17,9 +19,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fusionalliance/constants.js/issues"
+    "url": "https://github.com/fusionalliance/resourceful.js/issues"
   },
-  "homepage": "https://github.com/fusionalliance/constants.js",
+  "homepage": "https://github.com/fusionalliance/resourceful.js",
   "devDependencies": {
     "browser-sync": "^1.9.1",
     "browserify": "^8.1.1",
