@@ -1,6 +1,6 @@
 'use strict';
 
-var browserify, browserifyTask, browserSync, watchify, bundleLogger, gulp, handleErrors, source, buffer, sourcemaps, config, wrap;
+var browserify, browserifyTask, browserSync, watchify, bundleLogger, gulp, handleErrors, source, buffer, sourcemaps, config, wrap, to5ify;
 
 browserify = require('browserify');
 browserSync = require('browser-sync');
@@ -13,6 +13,7 @@ source = require('vinyl-source-stream');
 buffer = require('vinyl-buffer');
 config = require('../config').browserify;
 wrap = require('gulp-wrap');
+to5ify = require('6to5ify');
 
 browserifyTask = function(callback, devMode) {
   var bundleQueue, browserifyThis;
@@ -31,7 +32,8 @@ browserifyTask = function(callback, devMode) {
     bundle = function() {
       bundleLogger.start(bundleConfig.outputName);
 
-      return browserifyLoader.bundle()
+      return browserifyLoader.transform('to5ify')
+        .bundle()
         .on('error', handleErrors)
         .pipe(source(bundleConfig.outputName))
         .pipe(buffer())
