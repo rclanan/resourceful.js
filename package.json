@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/fusionalliance/resourceful.js",
   "devDependencies": {
+    "6to5": "^3.6.2",
     "6to5ify": "^4.1.1",
     "browser-sync": "^1.9.1",
     "browserify": "^8.1.1",
