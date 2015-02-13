@@ -1,14 +1,19 @@
 'use strict';
 require("6to5/polyfill");
-import fullUniqueMap from './fullUniqueMap';
+import {FullUniqueMap} from './fullUniqueMap';
 
-var uniqueMap = new fullUniqueMap.FullUniqueMap();
+var uniqueMap = new FullUniqueMap();
 
 uniqueMap.add({
   name: 'foo',
   value: 'bar'
 });
 
+uniqueMap.add({
+  name: 'Meh',
+  value: 'bleh'
+});
+
 for(let nameValue of uniqueMap) {
-  console.out(nameValue);
+  console.log(nameValue);
 }

@@ -8,7 +8,7 @@ function buildAddError(){
 
 }
 
-function checkExists(opitons) {
+function checkExists(options) {
   var existingValue = options.map.get(options.key);
   if(existingValue !== undefined) {
     return {
@@ -64,6 +64,6 @@ export class FullUniqueMap {
   }
 
   [Symbol.iterator](){
-    return this.nameValue[Symbol.iterator]();
+    return this.nameValues[Symbol.iterator]();
   }
 }
