@@ -4,7 +4,7 @@ pkg = require('../package.json');
 path = require('path');
 
 dest = './dist';
-src = './src';
+src = './spikes/';
 test = './test';
 reports = './reports';
 
@@ -17,10 +17,11 @@ module.exports = {
   browserify: {
     // A separate bundle will be generated for each bundle config in the list below
     bundleConfigs: [{
-      entries: src + pkg.mainFilename,
+      entries: src + pkg.entryName,
       dest: dest,
-      template: src + '/_bundleTemplate.js',
-      outputName: pkg.mainFilename,
+      template: src + '_bundleTemplate.js',
+      outputName: pkg.outputName,
+      "transform": ["6to5ify"],
       require: [],
       external: []
     }]
@@ -34,7 +35,7 @@ module.exports = {
     //Browserify plugins
     browserify: {
       debug: true
-    },
+    }
   },
   linter: {
     files: [ src + '/**/*.js', '!'  + src + '/**/_*.js']

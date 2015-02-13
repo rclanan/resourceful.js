@@ -1,6 +1,7 @@
 {
   "name": "resourceful.js",
-  "mainFilename": "resourceful.js",
+  "outputName": "resourceful.js",
+  "entryName": "app.js",
   "version": "0.0.1",
   "description": "ES6 implementation of constants.js library",
   "main": "dist/resourceful.js",
