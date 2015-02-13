@@ -3,6 +3,7 @@
 
 var SystemJs = require('systemjs');
 
+SystemJs.transpiler = '6to5';
 // note: we need a windows check here for the files.
 
 SystemJs.import('./fullUniqueMap.js').then(function(module){
