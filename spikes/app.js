@@ -14,6 +14,11 @@ uniqueMap.add({
   value: 'bleh'
 });
 
+uniqueMap.add({
+  name: 'Meh',
+  value: 'bleh'
+});
+
 for(let nameValue of uniqueMap) {
   console.log(nameValue);
 }

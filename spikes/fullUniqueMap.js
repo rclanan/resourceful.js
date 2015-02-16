@@ -9,13 +9,14 @@ function buildAddError(){
 }
 
 function checkExists(options) {
-  var existingValue = options.map.get(options.key);
+  let existingValue = options.map.get(options.key);
+
   if(existingValue !== undefined) {
     return {
       insertValue: options.insertValue,
       type: options.type,
       overLapValue: existingValue
-    }
+    };
   }
 }
 
@@ -39,7 +40,8 @@ export class FullUniqueMap {
   }
 
   add(nameValue){
-    var errorInformation;
+    let errorInformation;
+
     errorInformation = checkIfNameOrValuesExist({
       nameValue: nameValue,
       nameValues: this.nameValues,
@@ -50,8 +52,10 @@ export class FullUniqueMap {
       this.nameValues.set(nameValue.name, nameValue.value);
       this.valueNames.set(nameValue.value, nameValue.name);
     } else {
-      var error = new Error('error inserting nameValue "' + nameValue.name + '", ' + errorInformation.type + ' already exists.');
+      let error = new Error(`error inserting nameValue "${nameValue.name}", ${errorInformation.type} already exists.`);
+
       error.information = errorInformation;
+
       throw error;
     }
 
