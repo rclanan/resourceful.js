@@ -17,3 +17,4 @@ uniqueMap.add({
 for(let nameValue of uniqueMap) {
   console.log(nameValue);
 }
+

@@ -1,6 +1,6 @@
 'use strict';
 
-import { generateError, checkIfNameOrValuesExist } from './fullUniqueMapErrorChecking.js';
+import { errorUtilities } from './fullUniqueMapErrorChecking.js';
 
 
 var noOp = () => {};
@@ -15,7 +15,7 @@ export class FullUniqueMap {
   add(nameValue){
     let errorInformation;
 
-    errorInformation = checkIfNameOrValuesExist({
+    errorInformation = errorUtilities.checkIfNameOrValuesExist({
       nameValue: nameValue,
       nameValues: this.nameValues,
       valueNames: this.valueNames
@@ -25,7 +25,7 @@ export class FullUniqueMap {
       this.nameValues.set(nameValue.name, nameValue.value);
       this.valueNames.set(nameValue.value, nameValue.name);
     } else {
-      generateError(errorInformation);
+      errorUtilities.generateError(errorInformation);
     }
   }
 

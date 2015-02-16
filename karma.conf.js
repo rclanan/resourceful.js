@@ -7,6 +7,7 @@ module.exports = function(config) {
 
     // List of files or patterns to load in the browser
     files: [
+      { pattern: 'node_modules/traceur/bin/traceur-runtime.js', included: true},
       { pattern: 'src/**/*.js', included: false },
       { pattern: 'test/spec/**/*.js', included: true }
     ],
@@ -48,7 +49,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
@@ -56,7 +57,8 @@ module.exports = function(config) {
 
     browserify: {
       debug: true,
-      transform: ['browserify-istanbul']
+      transform: ['browserify-istanbul', 'es6ify'],
+      require: ['traceur/bin/traceur-runtime']
     },
 
     coverageReporter: {
