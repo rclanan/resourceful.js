@@ -21,8 +21,8 @@ module.exports = {
       dest: dest,
       template: src + '_bundleTemplate.js',
       outputName: pkg.outputName,
-      transform: ["6to5ify"],
-      require: ['6to5/polyfill'],
+      transform: ["babelify"],
+      require: ['babel/polyfill'],
       external: []
     }]
   },

@@ -1,5 +1,5 @@
 'use strict';
-require("6to5/polyfill");
+require("babel/polyfill");
 import {FullUniqueMap} from './fullUniqueMap';
 
 var uniqueMap = new FullUniqueMap();
@@ -7,11 +7,6 @@ var uniqueMap = new FullUniqueMap();
 uniqueMap.add({
   name: 'foo',
   value: 'bar'
-});
-
-uniqueMap.add({
-  name: 'Meh',
-  value: 'bleh'
 });
 
 uniqueMap.add({
