@@ -1,6 +1,6 @@
 'use strict';
 
-var browserify, browserifyTask, browserSync, watchify, bundleLogger, gulp, handleErrors, source, buffer, sourcemaps, config, wrap;
+var browserify, browserifyTask, browserSync, watchify, bundleLogger, gulp, handleErrors, source, buffer, sourcemaps, config, wrap, es6ify;
 
 browserify = require('browserify');
 browserSync = require('browser-sync');
@@ -13,6 +13,7 @@ source = require('vinyl-source-stream');
 buffer = require('vinyl-buffer');
 config = require('../config').browserify;
 wrap = require('gulp-wrap');
+es6ify = require('es6ify');
 
 browserifyTask = function(callback, devMode) {
   var bundleQueue, browserifyThis;
@@ -31,6 +32,7 @@ browserifyTask = function(callback, devMode) {
     bundle = function() {
       bundleLogger.start(bundleConfig.outputName);
 
+      // adding es6ify transform and runtime here because both are needed for this project.
       return browserifyLoader.bundle()
         .on('error', handleErrors)
         .pipe(source(bundleConfig.outputName))

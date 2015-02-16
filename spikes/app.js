@@ -1,5 +1,5 @@
 'use strict';
-require("babel/polyfill");
+require('traceur/bin/traceur-runtime');
 import {FullUniqueMap} from './fullUniqueMap';
 
 var uniqueMap = new FullUniqueMap();

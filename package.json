@@ -32,6 +32,7 @@
     "browserify-shim": "^3.8.2",
     "complexity-report": "^1.1.1",
     "del": "^1.1.1",
+    "es6ify": "^1.6.0",
     "gulp": "^3.8.10",
     "gulp-changed": "^1.1.0",
     "gulp-clean": "^0.3.1",
@@ -68,6 +69,7 @@
     "watchify": "^2.2.1"
   },
   "dependencies": {
-    "systemjs": "^0.13.2"
+    "systemjs": "^0.13.2",
+    "traceur": "0.0.84"
   }
 }

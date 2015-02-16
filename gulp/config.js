@@ -17,12 +17,13 @@ module.exports = {
   browserify: {
     // A separate bundle will be generated for each bundle config in the list below
     bundleConfigs: [{
+      files: [],
       entries: src + pkg.entryName,
       dest: dest,
       template: src + '_bundleTemplate.js',
       outputName: pkg.outputName,
-      transform: ["babelify"],
-      require: ['babel/polyfill'],
+      transform: ['es6ify'],
+      require: ['traceur/bin/traceur-runtime'],
       external: []
     }]
   },
