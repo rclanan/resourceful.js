@@ -1,0 +1,36 @@
+{
+  "name": "angular-es6-boilerplate",
+  "version": "0.1.0",
+  "homepage": "https://github.com/davidjnelson/angular-es6-boilerplate",
+  "authors": [
+    "David Nelson <david.jonathan.nelson@gmail.com>"
+  ],
+  "description": "An opinionated angular boilerplate in the spirit of ng-boilerplate which uses traceur to allow for es6 features.",
+  "main": "gulpfile.js",
+  "keywords": [
+    "es6",
+    "traceur",
+    "gulp",
+    "boilerplate",
+    "karma",
+    "protractor",
+    "jasmine",
+    "amd",
+    "requirejs",
+    "minify",
+    "concatenate",
+    "module"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "traceur-runtime": "~0.0.44",
+    "almond": "~0.2.9"
+  }
+}

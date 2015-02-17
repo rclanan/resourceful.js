@@ -1,6 +1,5 @@
 'use strict';
-require('traceur/bin/traceur-runtime');
-import {FullUniqueMap} from './fullUniqueMap';
+import {FullUniqueMap} from './utilities/fullUniqueMap';
 
 var uniqueMap = new FullUniqueMap();
 
@@ -17,4 +16,3 @@ uniqueMap.add({
 for(let nameValue of uniqueMap) {
   console.log(nameValue);
 }
-
