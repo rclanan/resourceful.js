@@ -5,7 +5,7 @@ var traceurOptions = require('./config').traceur;
 
 module.exports = function(config) {
   config.set({
-    frameworks: ['jasmine', 'requirejs', 'traceur'],
+    frameworks: ['jasmine', 'requirejs', 'traceur', 'sinon'],
 
     files: [
       'test-main.js',

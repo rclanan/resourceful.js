@@ -1,39 +1,58 @@
 'use strict';
 
 function checkExists(options) {
-    let existingValue = options.map.get(options.key);
+  let existingValue = options.map.get(options.key);
 
-    if(existingValue !== undefined) {
-        return {
-            insertValue: options.key,
-            type: options.type,
-            existingValue: existingValue
-        };
+  if(existingValue !== undefined) {
+    return {
+      insertValue: options.key,
+      type: options.type,
+      existingValue: existingValue
+    };
+  }
+}
+
+function checkMatchingExists(options) {
+  var mapList = Object.keys(options.typeMaps);
+  var errors = [];
+
+  for(let keyName of mapList) {
+    let error = checkExists({
+      key: options.matchObject[keyName],
+      type: keyName,
+      map: options.typeMaps[keyName]
+    });
+
+    if(error) {
+      errors.push(error);
     }
+  }
+
+  return errors;
 }
 
-function checkIfNameOrValuesExist(options) {
-    return checkExists({
-            key: options.nameValue.name,
-            type: 'name',
-            map: options.nameValues
-        }) || checkExists({
-            key: options.nameValue.value,
-            type: 'value',
-            map: options.valueNames
-        });
+function generateErrorMessage(errorInformationArray) {
+  const errorBase = 'error inserting given object, the following items have existing values: ';
+  let valueOverlaps = [];
+
+  for(let errorInformation of errorInformationArray) {
+    valueOverlaps.push(`${errorInformation.type} "${errorInformation.key}"`);
+  }
+
+  return `${errorBase} ${valueOverlaps.join(',')}`;
 }
 
-function generateError(errorInformation) {
-    let error = new Error(`error inserting nameValue "${errorInformation.key}", ${errorInformation.type} already exists.`);
+function generateError(errorInformationArray) {
+  let errorMessage = generateErrorMessage(errorInformationArray);
+  let error = new Error(errorMessage);
 
-    error.information = errorInformation;
+  error.existingObjectMatches = errorInformationArray;
 
-    throw error;
+  throw error;
 }
 
 export const errorUtilities = {
-    checkExists: checkExists,
-    checkIfNameOrValuesExist: checkIfNameOrValuesExist,
-    generateError: generateError
+  checkExists: checkExists,
+  checkMatchingExists: checkMatchingExists,
+  generateError: generateError
 };
