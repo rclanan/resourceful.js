@@ -2,7 +2,7 @@
 
 import {fullUniqueMapLibrary} from '../../../libraryLocations/fullUniqueMapLibrary';
 
-describe('fullUniqueMapErrors', () => {
+describe('mapValidation', () => {
   describe('checkExists', () => {
     var results, given;
     beforeAll(() => {
@@ -23,8 +23,8 @@ describe('fullUniqueMapErrors', () => {
       map.set('foo', 'bar');
 
       results = {
-        noOverlapCall: fullUniqueMapLibrary.errorUtilities.checkExists(given.noOverlapOptions),
-        overlapCall: fullUniqueMapLibrary.errorUtilities.checkExists(given.overlapOptions)
+        noOverlapCall: fullUniqueMapLibrary.mapValidation.checkExists(given.noOverlapOptions),
+        overlapCall: fullUniqueMapLibrary.mapValidation.checkExists(given.overlapOptions)
       };
     });
 
@@ -85,7 +85,7 @@ describe('fullUniqueMapErrors', () => {
       given.typeMaps.value.set('otherValueMatch', 'otherNameMatch');
 
 
-      checkExistsSpy = sinon.spy(fullUniqueMapLibrary.errorUtilities, 'checkExists');
+      checkExistsSpy = sinon.spy(fullUniqueMapLibrary.mapValidation, 'checkExists');
 
       // run tests:
       function runTest(testName, given, spy, checkMatchingExists) {
@@ -100,10 +100,10 @@ describe('fullUniqueMapErrors', () => {
       }
 
       for(let test of given.tests) {
-        results[test] = runTest(test, given, checkExistsSpy, fullUniqueMapLibrary.errorUtilities.checkMatchingExists);
+        results[test] = runTest(test, given, checkExistsSpy, fullUniqueMapLibrary.mapValidation.checkMatchingExists);
       }
 
-      fullUniqueMapLibrary.errorUtilities.checkExists.restore();
+      fullUniqueMapLibrary.mapValidation.checkExists.restore();
     });
 
     //matches keys to maps with the name of the key
@@ -124,10 +124,5 @@ describe('fullUniqueMapErrors', () => {
 
   });
 
-  describe('generateError', () => {
-    it('should throw an error when called', () => {});
-    it('should attach the given error information to that call', () => {});
-    it('should have an error message containing the given key and the type', () => {});
-  });
 });
 

@@ -1,6 +1,7 @@
 'use strict';
 
-import { errorUtilities } from './fullUniqueMapUtilities/fullUniqueMapErrors';
+import { mapValidation } from './fullUniqueMapUtilities/mapValidation';
+import { errorBuilder} from './fullUniqueMapUtilities/errorBuilder';
 
 var noOp = () => {};
 
@@ -13,7 +14,7 @@ export class FullUniqueMap {
     insert(nameValue){
         let errorInformation;
 
-        errorInformation = errorUtilities.checkIfNameOrValuesExist({
+        errorInformation = mapValidation.checkMatchingExists({
             nameValue: nameValue,
             nameValues: this.nameValues,
             valueNames: this.valueNames
@@ -23,7 +24,7 @@ export class FullUniqueMap {
             this.nameValues.set(nameValue.name, nameValue.value);
             this.valueNames.set(nameValue.value, nameValue.name);
         } else {
-            errorUtilities.generateError(errorInformation);
+          errorBuilder.build(errorInformation);
         }
     }
 

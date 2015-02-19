@@ -1,9 +1,11 @@
 'use strict';
 
-import {FullUniqueMap} from '../../src/utilities/fullUniqueMap';
-import {errorUtilities} from '../../src/utilities/fullUniqueMapUtilities/fullUniqueMapErrors';
+import {FullUniqueMap } from '../../src/utilities/fullUniqueMap';
+import { mapValidation } from '../../src/utilities/fullUniqueMapUtilities/mapValidation';
+import { errorBuilder } from '../../src/utilities/fullUniqueMapUtilities/errorBuilder';
 
 export var fullUniqueMapLibrary = {
   FullUniqueMap: FullUniqueMap,
-  errorUtilities: errorUtilities
+  mapValidation: mapValidation,
+  errorBuilder: errorBuilder
 };
