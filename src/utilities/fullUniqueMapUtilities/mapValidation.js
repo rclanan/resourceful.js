@@ -1,5 +1,5 @@
 'use strict';
-export var mapValidation;
+var mapValidation;
 
 function checkExists(options) {
   let existingValue = options.map.get(options.key);
@@ -38,3 +38,5 @@ mapValidation = {
   checkExists: checkExists,
   checkMatchingExists: checkMatchingExists
 };
+
+export { mapValidation };

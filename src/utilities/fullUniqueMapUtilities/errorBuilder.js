@@ -1,16 +1,15 @@
 'use strict';
 
-export var errorBuilder;
+var errorBuilder;
 
 function buildMessage(errorInformationArray) {
-  const errorBase = 'error inserting given object, the following items have existing values: ';
   let valueOverlaps = [];
 
   for(let errorInformation of errorInformationArray) {
     valueOverlaps.push(`${errorInformation.type} "${errorInformation.key}"`);
   }
 
-  return `${errorBase} ${valueOverlaps.join(',')}`;
+  return `it('should have an error message containing the given key and the type', () => {}); ${valueOverlaps.join(',')}`;
 }
 
 function build(errorInformationArray) {
@@ -26,3 +25,5 @@ errorBuilder = {
   build: build,
   buildMessage: buildMessage
 };
+
+export { errorBuilder };

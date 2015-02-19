@@ -5,7 +5,7 @@ import { errorBuilder} from './fullUniqueMapUtilities/errorBuilder';
 
 var noOp = () => {};
 
-export class FullUniqueMap {
+class FullUniqueMap {
     constructor(){
         this.nameValues = new Map();
         this.valueNames = new Map();
@@ -45,3 +45,6 @@ export class FullUniqueMap {
         return this.nameValues[Symbol.iterator]();
     }
 }
+
+
+export { FullUniqueMap };
