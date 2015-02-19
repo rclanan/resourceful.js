@@ -1,5 +1,11 @@
 'use strict';
 
+export var errorUtilities = {
+  checkExists: checkExists,
+  checkMatchingExists: checkMatchingExists,
+  generateError: generateError
+};
+
 function checkExists(options) {
   let existingValue = options.map.get(options.key);
 
@@ -17,7 +23,7 @@ function checkMatchingExists(options) {
   var errors = [];
 
   for(let keyName of mapList) {
-    let error = checkExists({
+    let error = errorUtilities.checkExists({
       key: options.matchObject[keyName],
       type: keyName,
       map: options.typeMaps[keyName]
@@ -51,8 +57,4 @@ function generateError(errorInformationArray) {
   throw error;
 }
 
-export const errorUtilities = {
-  checkExists: checkExists,
-  checkMatchingExists: checkMatchingExists,
-  generateError: generateError
-};
+

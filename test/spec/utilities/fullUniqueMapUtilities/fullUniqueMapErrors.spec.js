@@ -92,10 +92,10 @@ describe('fullUniqueMapErrors', () => {
         var result = {};
         result.returned = checkMatchingExists({
           matchObject: given[testName],
-          mapList: given.typeMaps
+          typeMaps: given.typeMaps
         });
-        result.checkExistArguments = spy.lastCall().args[0];
-        result.checkExistReturns = spy.lastCall().returnValue;
+        result.checkExistsArguments = spy.lastCall.args[0];
+        result.checkExistReturns = spy.lastCall.returnValue;
         return result;
       }
 
@@ -116,7 +116,7 @@ describe('fullUniqueMapErrors', () => {
     });
 
     it('should test each item using the key names', () => {
-      for(let test of tests) {
+      for(let test of given.tests) {
         let args = results[test].checkExistsArguments;
         expect(args.key).toBe(given[test][args.type]);
       }
