@@ -1,10 +1,5 @@
 'use strict';
-
-export var errorUtilities = {
-  checkExists: checkExists,
-  checkMatchingExists: checkMatchingExists,
-  generateError: generateError
-};
+export var errorUtilities;
 
 function checkExists(options) {
   let existingValue = options.map.get(options.key);
@@ -57,4 +52,8 @@ function generateError(errorInformationArray) {
   throw error;
 }
 
-
+errorUtilities = {
+  checkExists: checkExists,
+  checkMatchingExists: checkMatchingExists,
+  generateError: generateError
+};
