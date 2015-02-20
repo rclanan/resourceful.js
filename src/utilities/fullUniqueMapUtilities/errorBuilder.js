@@ -9,7 +9,7 @@ function buildMessage(errorInformationArray) {
     valueOverlaps.push(`${errorInformation.type} "${errorInformation.key}"`);
   }
 
-  return `it('should have an error message containing the given key and the type', () => {}); ${valueOverlaps.join(',')}`;
+  return `error inserting the following items: ${valueOverlaps.join(',')}`;
 }
 
 function build(errorInformationArray) {
