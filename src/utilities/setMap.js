@@ -1,11 +1,11 @@
 'use strict';
 
-import { mapValidation } from './fullUniqueMapUtilities/mapValidation';
-import { errorBuilder} from './fullUniqueMapUtilities/errorBuilder';
+import { mapValidation } from './setMapUtilities/mapValidation';
+import { errorBuilder} from './setMapUtilities/errorBuilder';
 
 var noOp = () => {};
 
-class FullUniqueMap {
+class SetMap {
     constructor(){
         this.nameValues = new Map();
         this.valueNames = new Map();
@@ -47,4 +47,4 @@ class FullUniqueMap {
 }
 
 
-export { FullUniqueMap };
+export { SetMap };

@@ -1,6 +1,6 @@
 'use strict';
 
-import {fullUniqueMapLibrary} from '../../../libraryLocations/fullUniqueMapLibrary';
+import { setMapLibrary } from '../../../libraryLocations/setMapLibrary';
 
 function buildErrorInformationArray(count, type) {
   var errorInformationArray = [];
@@ -11,14 +11,6 @@ function buildErrorInformationArray(count, type) {
     });
   }
   return errorInformationArray;
-}
-
-function buildErrorMessage(errorInformations) {
-  let errorMessages = [];
-  for(let error of errorInformations) {
-    errorMessages.push(`${error.type} "${error.key}"`);
-  }
-  return errorMessages;
 }
 
 describe('errorBuilder',()=>{
@@ -32,21 +24,21 @@ describe('errorBuilder',()=>{
 
 
 
-    buildMessageSpy = sinon.spy(fullUniqueMapLibrary.errorBuilder, 'buildMessage');
+    buildMessageSpy = sinon.spy(setMapLibrary.errorBuilder, 'buildMessage');
 
     results = {};
     results.buildMessage = {};
     results.build = {};
     // these will throw errors.
     try{
-      fullUniqueMapLibrary.errorBuilder.build(given.singleErrorInformation);
+      setMapLibrary.errorBuilder.build(given.singleErrorInformation);
     } catch( singleError ) {
       results.build.callSingle = singleError;
       results.buildMessage.callSingle = buildMessageSpy.lastCall;
     }
 
     try{
-      fullUniqueMapLibrary.errorBuilder.build(given.multiErrorInformation);
+      setMapLibrary.errorBuilder.build(given.multiErrorInformation);
     } catch( multiError ) {
       results.build.callMulti = multiError;
       results.buildMessage.callMulti = buildMessageSpy.lastCall;

@@ -1,6 +1,6 @@
 'use strict';
 
-import {fullUniqueMapLibrary} from '../../../libraryLocations/fullUniqueMapLibrary';
+import { setMapLibrary } from '../../../libraryLocations/setMapLibrary';
 
 describe('mapValidation', () => {
   describe('checkExists', () => {
@@ -23,8 +23,8 @@ describe('mapValidation', () => {
       map.set('foo', 'bar');
 
       results = {
-        noOverlapCall: fullUniqueMapLibrary.mapValidation.checkExists(given.noOverlapOptions),
-        overlapCall: fullUniqueMapLibrary.mapValidation.checkExists(given.overlapOptions)
+        noOverlapCall: setMapLibrary.mapValidation.checkExists(given.noOverlapOptions),
+        overlapCall: setMapLibrary.mapValidation.checkExists(given.overlapOptions)
       };
     });
 
@@ -85,7 +85,7 @@ describe('mapValidation', () => {
       given.typeMaps.value.set('otherValueMatch', 'otherNameMatch');
 
 
-      checkExistsSpy = sinon.spy(fullUniqueMapLibrary.mapValidation, 'checkExists');
+      checkExistsSpy = sinon.spy(setMapLibrary.mapValidation, 'checkExists');
 
       // run tests:
       function runTest(testName, given, spy, checkMatchingExists) {
@@ -100,10 +100,10 @@ describe('mapValidation', () => {
       }
 
       for(let test of given.tests) {
-        results[test] = runTest(test, given, checkExistsSpy, fullUniqueMapLibrary.mapValidation.checkMatchingExists);
+        results[test] = runTest(test, given, checkExistsSpy, setMapLibrary.mapValidation.checkMatchingExists);
       }
 
-      fullUniqueMapLibrary.mapValidation.checkExists.restore();
+      setMapLibrary.mapValidation.checkExists.restore();
     });
 
     //matches keys to maps with the name of the key

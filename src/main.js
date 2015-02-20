@@ -1,7 +1,7 @@
 'use strict';
-import {FullUniqueMap} from './utilities/fullUniqueMap';
+import {SetMap} from './utilities/setMap';
 
-var uniqueMap = new FullUniqueMap();
+var uniqueMap = new SetMap();
 
 uniqueMap.add({
   name: 'foo',
