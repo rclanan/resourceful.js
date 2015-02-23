@@ -1,0 +1,8 @@
+{
+"modules": "amd",
+"sourceMaps":true,
+"types": true,
+"typeAssertions": true,
+"typeAssertionModule": "assert",
+"annotations": true
+}

@@ -1,0 +1,10 @@
+{
+  "baseUrl" : "src",
+  "mainConfigFile" : "src/runtime-config.js",
+  "out" : "dist/build.js",
+  "include" : ["traceur", "runtime-config"],
+  "findNestedDependencies" : true,
+  "wrap" : true,
+  "name" : "../bower_components/almond/almond",
+  "preserveLicenseComments" : false
+}

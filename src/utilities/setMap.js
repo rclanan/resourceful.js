@@ -30,8 +30,8 @@ class SetMap {
 
     removeName(){}
     removeValue(){}
-    setValue(options){}
-    setName(options){}
+    setValue(){}
+    setName(){}
 
     lock() {
         this.insert = noOp;
