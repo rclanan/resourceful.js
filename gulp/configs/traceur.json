@@ -1,6 +1,6 @@
 {
 "modules": "amd",
-"sourceMaps":true,
+"sourceMaps":false,
 "types": true,
 "typeAssertions": true,
 "typeAssertionModule": "assert",

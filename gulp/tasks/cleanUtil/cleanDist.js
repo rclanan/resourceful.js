@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp,del, config, cleanDistTask;
+var gulp,del, config, cleanDistTask, clean;
 
 gulp = require('gulp');
 del = require('del');

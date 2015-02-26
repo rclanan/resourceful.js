@@ -4,7 +4,7 @@ var gulp, cleanTask;
 
 gulp = require('gulp');
 
-cleanTask = function(callback) {
+cleanTask = function() {
   // Additional cleaning task can be specified here
 };
 
