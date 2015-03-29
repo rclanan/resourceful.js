@@ -2,14 +2,14 @@
 
 var gulp, config, size, uglify, uglifyTask, pkg, rename;
 
-gulp = require('gulp');
-config = require('../config').production;
-size = require('gulp-filesize');
-uglify = require('gulp-uglify');
-rename = require('gulp-rename');
-pkg = require('../../package.json');
+gulp           = require('gulp');
+config         = require('../config').production;
+size           = require('gulp-filesize');
+uglify         = require('gulp-uglify');
+rename         = require('gulp-rename');
+pkg            = require('../../package.json');
 
-uglifyTask = function() {
+uglifyTask     = function() {
   return gulp.src(config.jsSrc)
   .pipe(uglify())
   .pipe(rename({ suffix: '.' + pkg.version + '.min' }))

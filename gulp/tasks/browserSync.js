@@ -2,9 +2,9 @@
 
 var browserSync, browserSyncTask, gulp, config;
 
-browserSync = require('browser-sync');
-gulp = require('gulp');
-config = require('../config').browserSync;
+browserSync     = require('browser-sync');
+gulp            = require('gulp');
+config          = require('../config').browserSync;
 
 browserSyncTask = function() {
   browserSync(config);
@@ -12,4 +12,4 @@ browserSyncTask = function() {
 
 gulp.task('browserSync', browserSyncTask);
 
-module.exports = browserSyncTask;
+module.exports  = browserSyncTask;

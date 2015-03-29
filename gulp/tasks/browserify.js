@@ -2,34 +2,34 @@
 
 var browserify, browserifyTask, browserSync, watchify, bundleLogger, gulp, handleErrors, source, buffer, sourcemaps, config, wrap, es6ify;
 
-browserify = require('browserify');
-browserSync = require('browser-sync');
-watchify = require('watchify');
-bundleLogger = require('../util/bundleLogger');
-gulp = require('gulp');
-handleErrors = require('../util/handleErrors');
-sourcemaps = require('gulp-sourcemaps');
-source = require('vinyl-source-stream');
-buffer = require('vinyl-buffer');
-config = require('../config').browserify;
-wrap = require('gulp-wrap');
-es6ify = require('es6ify');
+browserify              = require('browserify');
+browserSync             = require('browser-sync');
+watchify                = require('watchify');
+bundleLogger            = require('../util/bundleLogger');
+gulp                    = require('gulp');
+handleErrors            = require('../util/handleErrors');
+sourcemaps              = require('gulp-sourcemaps');
+source                  = require('vinyl-source-stream');
+buffer                  = require('vinyl-buffer');
+config                  = require('../config').browserify;
+wrap                    = require('gulp-wrap');
+es6ify                  = require('es6ify');
 
-browserifyTask = function(callback, devMode) {
+browserifyTask          = function(callback, devMode) {
   var bundleQueue, browserifyThis;
 
-  bundleQueue = config.bundleConfigs.length;
-  browserifyThis = function(bundleConfig) {
+  bundleQueue           = config.bundleConfigs.length;
+  browserifyThis        = function(bundleConfig) {
     var browserifyLoader, bundle, reportFinished;
 
     if (devMode) {
       _.extend(bundleConfig, watchify.args, { debug: true });
-      bundleConfig = _.omit(bundleConfig, ['external', 'require']);
+      bundleConfig      = _.omit(bundleConfig, ['external', 'require']);
     }
 
-    browserifyLoader = browserify(bundleConfig);
+    browserifyLoader    = browserify(bundleConfig);
 
-    bundle = function() {
+    bundle              = function() {
       bundleLogger.start(bundleConfig.outputName);
 
       // adding es6ify transform and runtime here because both are needed for this project.
@@ -47,7 +47,7 @@ browserifyTask = function(callback, devMode) {
 
     if (devMode) {
 
-      browserifyLoader = watchify(browserifyLoader);
+      browserifyLoader  = watchify(browserifyLoader);
       browserifyLoader.on('update', bundle);
       bundleLogger.watch(bundleConfig.outputName);
     } else {
@@ -60,7 +60,7 @@ browserifyTask = function(callback, devMode) {
       }
     }
 
-    reportFinished = function() {
+    reportFinished      = function() {
       bundleLogger.end(bundleConfig.outputName);
 
       if (bundleQueue) {
@@ -80,4 +80,4 @@ browserifyTask = function(callback, devMode) {
 
 gulp.task('browserify', browserifyTask);
 
-module.exports = browserifyTask;
+module.exports          = browserifyTask;

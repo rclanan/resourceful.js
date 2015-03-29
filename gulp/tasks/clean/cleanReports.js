@@ -2,9 +2,9 @@
 
 var gulp,del, config, cleanReportsTask;
 
-gulp = require('gulp');
-del = require('del');
-config = require('../../config').cleaning;
+gulp             = require('gulp');
+del              = require('del');
+config           = require('../../config').cleaning;
 
 cleanReportsTask = function(done) {
   del([config.reports + '/**'], done);
@@ -12,4 +12,4 @@ cleanReportsTask = function(done) {
 
 gulp.task('clean-reports', cleanReportsTask);
 
-module.exports = cleanReportsTask;
+module.exports   = cleanReportsTask;

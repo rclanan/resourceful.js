@@ -12,7 +12,8 @@ module.exports = {
   browserSync: {
     server: {
       baseDir: dest
-    }
+    },
+    proxy: 'localhost:3000'
   },
   browserify: {
     // A separate bundle will be generated for each bundle config in the list below
