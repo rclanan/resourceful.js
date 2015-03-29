@@ -3,12 +3,12 @@
 var gulp, testRunnerBuilder, unitTestModifier, integrationTestModifier, debugModifier, allBrowsersModifier;
 
 integrationTestModifier = require('../../karma/karmaIntegrationTestConfigurationModifier');
-unitTestModifier        = require('../../karma/karmaUnitTestsConfigurationModifier');
-debugModifier           = require('../../karma/karmaDebugConfigurationModifier');
-allBrowsersModifier     = require('../../karma/karmaAllBrowsersConfigurationModifier');
+unitTestModifier = require('../../karma/karmaUnitTestsConfigurationModifier');
+debugModifier = require('../../karma/karmaDebugConfigurationModifier');
+allBrowsersModifier = require('../../karma/karmaAllBrowsersConfigurationModifier');
 
-gulp                    = require('gulp');
-testRunnerBuilder       = require('./karma/testRunnerBuilder');
+gulp = require('gulp');
+testRunnerBuilder  = require('./karma/testRunnerBuilder');
 
 gulp.task('karma', testRunnerBuilder.buildTestRunner([unitTestModifier]));
 gulp.task('karma:watch', testRunnerBuilder.buildTestRunner([unitTestModifier]));
@@ -26,7 +26,7 @@ gulp.task('karma:integrationTests', testRunnerBuilder.buildTestRunner([integrati
 gulp.task('karma:integrationTests:debug', testRunnerBuilder.buildTestRunner([integrationTestModifier, debugModifier]));
 gulp.task('karma:integrationTests:allBrowsers', testRunnerBuilder.buildTestRunner([integrationTestModifier, allBrowsersModifier]));
 
-module.exports          = {
+module.exports = {
   karama: testRunnerBuilder.buildTestRunner([unitTestModifier]),
   karamWatch: testRunnerBuilder.buildTestRunner([unitTestModifier]),
   karmaAll: testRunnerBuilder.buildTestRunner([]),

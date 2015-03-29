@@ -2,11 +2,11 @@
 
 var gulp,del, config, cleanDistTask;
 
-gulp           = require('gulp');
-del            = require('del');
-config         = require('../../config').cleaning;
+gulp = require('gulp');
+del = require('del');
+config = require('../../config').cleaning;
 
-cleanDistTask  = function(done) {
+cleanDistTask = function(done) {
   del([config.dist + '/**'], done);
 };
 
